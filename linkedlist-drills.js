@@ -31,32 +31,24 @@ ourList.insertLast(2);
 ourList.insertLast(3);
 ourList.insertLast(4);
 ourList.insertLast(5);
-ourList.insertLast(6);
 
 
 // console.log(reverseList(ourList).prettyPrint());
 
+
 function thirdFromLast(lst) {
-  let current = lst.head;
-  let counter = 0;
 
-
-  while(current !== null) {
-    current = current.next;
-    counter++;
+  let slow = lst.head;
+  let fast = lst.head.next.next.next.next;
+  while(fast !== null ){   
+    fast = fast.next;
+    slow=slow.next;
   }
-  counter -= 4;
-  let i = 0;
-  current = lst.head;
-  while(i !== counter) {
-    current = current.next;
-    i++;
-  }
+  return slow;
 
-  return current;
 }
 
-// console.log(thirdFromLast(ourList));
+console.log(thirdFromLast(ourList));
 
 
 //Given a linked list, find and return the middle element
@@ -79,6 +71,6 @@ function middleOfList (lst){
   return slow;
 }
 
-console.log(middleOfList(ourList));
+// console.log(middleOfList(ourList));
 
 
