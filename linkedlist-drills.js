@@ -26,11 +26,33 @@ function reverseList (list){
 }
 
 const ourList = new LL();
-ourList.insertFirst('a');
-ourList.insertLast('b');
-ourList.insertLast('c');
-ourList.insertLast('d');
-ourList.insertLast('e');
+ourList.insertFirst(1);
+ourList.insertLast(2);
+ourList.insertLast(3);
+ourList.insertLast(4);
+ourList.insertLast(5);
 
 
-console.log(reverseList(ourList).prettyPrint());
+// console.log(reverseList(ourList).prettyPrint());
+
+function thirdFromLast(lst) {
+  let current = lst.head;
+  let counter = 0;
+
+
+  while(current !== null) {
+    current = current.next;
+    counter++;
+  }
+  counter -= 4;
+  let i = 0;
+  current = lst.head;
+  while(i !== counter) {
+    current = current.next;
+    i++
+  }
+
+  return current;
+}
+
+// console.log(thirdFromLast(ourList));
