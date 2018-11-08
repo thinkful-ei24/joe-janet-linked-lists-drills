@@ -42,6 +42,9 @@ class LinkedList {
     if(currentNode === null) {
       console.log('not found');
     }
+    if(nodeBefore === undefined) {
+      return this.removeFirst();
+    }
     nodeBefore.next = nodeAfter;
     return;
   }
@@ -69,7 +72,7 @@ class LinkedList {
       currentNode = currentNode.next;
     }
     if(currentNode === null) {
-      console.log('not found');
+      return console.log('heyey')
     }
     return currentNode;
   }
@@ -85,4 +88,6 @@ class _Node {
 const ourLinkList = new LinkedList();
 
 ourLinkList.insertFirst('Janet');
+ourLinkList.insertLast('Joe');
+ourLinkList.remove('Janet');
 console.log(ourLinkList);
