@@ -73,4 +73,32 @@ function middleOfList (lst){
 
 // console.log(middleOfList(ourList));
 
+function findCycle(lst) {
+  let fast = lst.head;
+  let slow = lst.head;
 
+  while(slow !== null && fast !== null && fast.next !== null) {
+    fast = fast.next.next;
+    slow = slow.next;
+
+    if(fast === slow) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+const cycleList = new LL();
+cycleList.insertFirst(1);
+cycleList.insertLast(2);
+cycleList.insertLast(3);
+cycleList.insertLast(4);
+cycleList.insertLast(5);
+cycleList.insertLast(6);
+cycleList.insertLast(8);
+cycleList.insertLast(9);
+cycleList.insertLast(10);
+cycleList.head.next.next = cycleList.head;
+
+console.log('findy', findCycle(cycleList));
