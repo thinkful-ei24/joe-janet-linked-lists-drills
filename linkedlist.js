@@ -4,7 +4,7 @@ class LinkedList {
   }
 
   insertFirst(value) {
-   return this.head = new _Node(value, this.head);
+    return this.head = new _Node(value, this.head);
   }
 
   insertLast(value) {
@@ -72,10 +72,24 @@ class LinkedList {
       currentNode = currentNode.next;
     }
     if(currentNode === null) {
-      return console.log('heyey')
+      return console.log('heyey');
     }
     return currentNode;
   }
+
+  prettyPrint(){
+    let  prettyString = '';
+
+    let currentNode = this.head;
+    while(currentNode !== null ){
+      prettyString += currentNode.value += ' => ' ;
+      currentNode = currentNode.next;
+    }
+    
+
+    return prettyString;
+  }
+
 }
 
 class _Node {
@@ -85,9 +99,11 @@ class _Node {
   }
 }
 
-const ourLinkList = new LinkedList();
+// const ourLinkList = new LinkedList();
 
-ourLinkList.insertFirst('Janet');
-ourLinkList.insertLast('Joe');
-ourLinkList.remove('Janet');
-console.log(ourLinkList);
+// ourLinkList.insertFirst('Janet');
+// ourLinkList.insertLast('Joe');
+// ourLinkList.remove('Janet');
+// console.log(ourLinkList);
+
+module.exports = LinkedList;
